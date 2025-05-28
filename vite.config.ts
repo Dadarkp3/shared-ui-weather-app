@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "shared_ui",
+      name: "shared_ui_weather_app",
       filename: "remoteEntry.js",
       exposes: {
         "./Button": "./src/components/atom/Button/index.tsx",
@@ -16,6 +16,10 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  build: {
+    target: "esnext",
+    outDir: "dist",
+  },
   server: {
     port: 3001,
   },
